@@ -1,0 +1,18 @@
+//
+// Copyright (C) 2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+java_library {
+    name: "hisi-fwk",
+    installable: true,
+    libs: [
+        "telephony-common",
+        "ims-common",
+    ],
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.aidl"
+    ],
+}
