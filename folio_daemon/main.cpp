@@ -27,7 +27,7 @@
 #include <unistd.h>
 
 // Hall-effect sensor type
-#define SENSOR_TYPE 65600
+#define SENSOR_TYPE 65538
 
 #define RETRY_LIMIT 120
 #define RETRY_PERIOD 30          // 30 seconds
@@ -134,8 +134,8 @@ int main(void) {
         int eventCount = 0;
         ASensorEvent sensorEvent;
         while (ASensorEventQueue_getEvents(eventQueue, &sensorEvent, 1) > 0) {
-            // 1 means closed; 0 means open
-            int isClosed = sensorEvent.data[0] > 0.0f ? 0 : 1;
+            // 0 means closed; 1 means open
+            int isClosed = sensorEvent.data[0] > 0.0f ? 1 : 0;
             struct input_event event;
             event.type = EV_SW;
             event.code = SW_LID;
